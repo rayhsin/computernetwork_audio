@@ -43,7 +43,7 @@
   
   如果是vedio的話我大可以傳送現在的jpeg給它
   
-  但是audio它會要求Range，所以我必須讀他的request裡的header檔，然後我要切出他要的那個range給它
+  但是audio它會要求Range（就是很龜毛ㄉ要特定時間的音檔），所以我必須讀他的request裡的header檔，然後我要切出他要的那個range給它
   
   （這是在前提是我可以控制flask的response所有內容，因為我在試著改他的內容的時候它不給我改qq）
   
