@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Live Streaming Demonstration</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8  offset-lg-2">
+            <h3 class="mt-5">Live Streaming Demonstration</h3>
+            <img src="{{ url_for('video_feed') }}" width="100%">
+        </div>
+        <source src="/music/5min.wav">
+<!--         <audio controls>
+            <source src="{{ url_for('audio') }}" type="audio/x-wav;codec=pcm">
+            Your browser does not support the audio element.
+        </audio> -->
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+
+var i=0;
+var nextSong= "";
+function setup() {
+    document.getElementById('audio').addEventListener('ended', function(){
+        nextSong = "/music/"+i+".wav";
+        i++;
+        audioPlayer = document.getElementById('audio');
+        audioPlayer.src = nextSong;
+        audioPLayer.load();
+        audioPlayer.play();
+        if(i == 10) // this is the end of the songs.
+        {
+            i = 0;
+        }
+        }, false);
+}
+</script>
+<body onLoad="setup();">
+<audio id="audio"  src="/music/1.wav"controls="controls" autoplay="autoplay"   align=""> </audio>
+</body>
+</html>
