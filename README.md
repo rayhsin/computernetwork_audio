@@ -1,18 +1,32 @@
 # computernetwork_audio
+
   前面的arg部份是前期（複製別人的code)也想說留給未來設定用的，
+  
   其中samplerate是一秒取樣的次數，default是44100
+  
   blocksize原本是想在livestreaming的時候傳送的單位，但是總之目前是不太可行了
   
+  
   首先大guy說一下目前我技術上遇到的困難＆發現（我真的很認真的做qq
+  
   因為是要做livestreaming
+  
   同時還要implement flow control之類的功能
+  
   我首先在我的電腦上可以作到錄音，並把錄音分塊，也可以幾塊幾塊存起來
+  
   （e.g. 一塊1024bytes，一次存五塊）
+  
   但是丟到html上就有點困難
+  
   因為和video不一樣的地方是，video的code好像可以一張一張jpeg在傳的
+  
   但是audio看起來不能。
+  
   我後來看http的request訊息
+  
   html的audio傳送有特定的規則（這是我直接上傳一個檔案收到的request）
+  
     Host: localhost:5000
     Connection: keep-alive
     Accept-Encoding: identity;q=1, *;q=0
